@@ -18,14 +18,15 @@ class Graph extends Component<IProps, {}> {
     return React.createElement('perspective-viewer');
   }
 
-  componentDidMount() {
-    // Get element from the DOM.
+    componentDidMount() {
     const elem = document.getElementsByTagName('perspective-viewer')[0] as unknown as PerspectiveViewerElement;
 
+    // Modify the schema to match the new requirements
     const schema = {
-      stock: 'string',
-      top_ask_price: 'float',
-      top_bid_price: 'float',
+      ratio: 'float', // Track the ratio of two stocks
+      upper_bound: 'float', // Upper bound for ratio
+      lower_bound: 'float', // Lower bound for ratio
+      trigger_alert: 'float', // Field for tracking when bounds are crossed
       timestamp: 'date',
     };
 
